@@ -1,0 +1,74 @@
+def sum(a, b):
+    try:
+        return a + b
+    except TypeError:
+        return "Error: NUMBERS NUMBERS NUMBERSSSS"
+
+
+def sub(a, b):
+    try:
+        return a - b
+    except TypeError:
+        return "Error: NUMBERS NUMBERS NUMBERSSSS"
+
+
+def div(a, b):
+    try:
+        if b == 0:
+            return "Error: NUMBERS NUMBERS NUMBERSSSS"
+        return a / b
+    except TypeError:
+        return "Error: NUMBERS NUMBERS NUMBERSSSS"
+
+
+def multiplication(a, b):
+    try:
+        return a * b
+    except TypeError:
+        return "Error: NUMBERS NUMBERS NUMBERSSSS"
+
+
+# calculator itself
+def calculator():
+    print("Hello heres our calculator!!")
+    print("we have: 1.Sum  2.Sub  3.Div  4.Multip")
+
+    while True:
+        ask = input("i will give you a choice between 1 to 4: ")
+
+        if ask not in ("1", "2", "3", "4"):
+            print("Invalid choice. fuck off and enter 1, 2, 3 or even 4.")
+            continue
+
+        try:
+            a = float(input("Enter first number: "))
+            b = float(input("Enter second number: "))
+        except ValueError:
+            print("Error: valid numbers my love!!")
+            continue
+
+        if ask == "1":
+            result = sum(a, b)
+        elif ask == "2":
+            result = sub(a, b)
+        elif ask == "3":
+            result = div(a, b)
+        elif ask == "4":
+            result = multiplication(a, b)
+
+        print("Result:", result)
+
+        # Ask if you wanna keep on going
+        while True:
+            again = input(
+                "Do you want to continue? yes or no: ").strip().lower()
+            if again in ("yes", "y", "aha", "yup"):
+                break
+            elif again in ("no", "n", "nuh", "nope"):
+                print("bye byeee!")
+                return
+            else:
+                print("PLEASE enter yes or no.")
+
+
+calculator()
